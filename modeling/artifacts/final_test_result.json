@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "status": "completed_once_without_post_test_model_changes",
+  "evaluated_on": "2026-08-12",
+  "frozen_specification": "modeling/artifacts/final_model_spec.json",
+  "population": {
+    "training_examples": 25585,
+    "training_subjects": 41,
+    "test_examples": 6161,
+    "test_subjects": 10
+  },
+  "development_reference": {
+    "mean_accuracy": 0.7418,
+    "mean_balanced_accuracy": 0.7427,
+    "mean_macro_f1": 0.7446,
+    "macro_f1_fold_std": 0.0432
+  },
+  "reserved_test": {
+    "accuracy": 0.6779743548125304,
+    "balanced_accuracy": 0.6772649572649573,
+    "macro_f1": 0.6850628392706278,
+    "macro_f1_difference_from_development_mean": -0.05953716072937221
+  },
+  "activity_metrics": [
+    {
+      "activity_code": "A",
+      "activity_name": "Walking",
+      "precision": 0.8980891719745223,
+      "recall": 0.8057142857142857,
+      "f1": 0.8493975903614458,
+      "support": 350
+    },
+    {
+      "activity_code": "B",
+      "activity_name": "Jogging",
+      "precision": 0.9610027855153204,
+      "recall": 0.9857142857142858,
+      "f1": 0.9732016925246827,
+      "support": 350
+    },
+    {
+      "activity_code": "C",
+      "activity_name": "Stairs",
+      "precision": 0.8513011152416357,
+      "recall": 0.726984126984127,
+      "f1": 0.7842465753424658,
+      "support": 315
+    },
+    {
+      "activity_code": "D",
+      "activity_name": "Sitting",
+      "precision": 0.37268128161888703,
+      "recall": 0.6314285714285715,
+      "f1": 0.4687168610816543,
+      "support": 350
+    },
+    {
+      "activity_code": "E",
+      "activity_name": "Standing",
+      "precision": 0.5449438202247191,
+      "recall": 0.9238095238095239,
+      "f1": 0.6855123674911661,
+      "support": 315
+    },
+    {
+      "activity_code": "F",
+      "activity_name": "Typing",
+      "precision": 0.9182879377431906,
+      "recall": 0.6742857142857143,
+      "f1": 0.7775947281713345,
+      "support": 350
+    },
+    {
+      "activity_code": "G",
+      "activity_name": "Brushing Teeth",
+      "precision": 0.8243626062322946,
+      "recall": 0.8314285714285714,
+      "f1": 0.8278805120910384,
+      "support": 350
+    },
+    {
+      "activity_code": "H",
+      "activity_name": "Eating Soup",
+      "precision": 0.6159695817490495,
+      "recall": 0.46285714285714286,
+      "f1": 0.5285481239804242,
+      "support": 350
+    },
+    {
+      "activity_code": "I",
+      "activity_name": "Eating Chips",
+      "precision": 0.4468864468864469,
+      "recall": 0.3485714285714286,
+      "f1": 0.391653290529695,
+      "support": 350
+    },
+    {
+      "activity_code": "J",
+      "activity_name": "Eating Pasta",
+      "precision": 0.5340136054421769,
+      "recall": 0.44857142857142857,
+      "f1": 0.48757763975155277,
+      "support": 350
+    },
+    {
+      "activity_code": "K",
+      "activity_name": "Drinking from Cup",
+      "precision": 0.5815602836879432,
+      "recall": 0.4685714285714286,
+      "f1": 0.5189873417721519,
+      "support": 350
+    },
+    {
+      "activity_code": "L",
+      "activity_name": "Eating Sandwich",
+      "precision": 0.1461864406779661,
+      "recall": 0.21904761904761905,
+      "f1": 0.17534942820838628,
+      "support": 315
+    },
+    {
+      "activity_code": "M",
+      "activity_name": "Kicking Soccer Ball",
+      "precision": 0.8700564971751412,
+      "recall": 0.88,
+      "f1": 0.875,
+      "support": 350
+    },
+    {
+      "activity_code": "O",
+      "activity_name": "Playing Catch",
+      "precision": 0.875968992248062,
+      "recall": 0.7174603174603175,
+      "f1": 0.7888307155322862,
+      "support": 315
+    },
+    {
+      "activity_code": "P",
+      "activity_name": "Dribbling Basketball",
+      "precision": 0.8846153846153846,
+      "recall": 0.7863247863247863,
+      "f1": 0.832579185520362,
+      "support": 351
+    },
+    {
+      "activity_code": "Q",
+      "activity_name": "Writing",
+      "precision": 0.8954248366013072,
+      "recall": 0.7828571428571428,
+      "f1": 0.8353658536585366,
+      "support": 350
+    },
+    {
+      "activity_code": "R",
+      "activity_name": "Clapping",
+      "precision": 0.8918918918918919,
+      "recall": 0.66,
+      "f1": 0.7586206896551724,
+      "support": 350
+    },
+    {
+      "activity_code": "S",
+      "activity_name": "Folding Clothes",
+      "precision": 0.7163814180929096,
+      "recall": 0.8371428571428572,
+      "f1": 0.7720685111989459,
+      "support": 350
+    }
+  ],
+  "subject_metrics": [
+    {
+      "user_id": 1606,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.8269841269841269,
+      "balanced_accuracy": 0.8269841269841269,
+      "macro_f1": 0.8203724720825519
+    },
+    {
+      "user_id": 1607,
+      "examples": 631,
+      "activities_present": 18,
+      "accuracy": 0.6038034865293186,
+      "balanced_accuracy": 0.6034832451499118,
+      "macro_f1": 0.5746183506285194
+    },
+    {
+      "user_id": 1618,
+      "examples": 595,
+      "activities_present": 17,
+      "accuracy": 0.7781512605042017,
+      "balanced_accuracy": 0.7781512605042017,
+      "macro_f1": 0.7785912141512346
+    },
+    {
+      "user_id": 1626,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.819047619047619,
+      "balanced_accuracy": 0.819047619047619,
+      "macro_f1": 0.8088936802540788
+    },
+    {
+      "user_id": 1629,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.7063492063492064,
+      "balanced_accuracy": 0.7063492063492063,
+      "macro_f1": 0.6717864526695743
+    },
+    {
+      "user_id": 1639,
+      "examples": 595,
+      "activities_present": 17,
+      "accuracy": 0.35294117647058826,
+      "balanced_accuracy": 0.35294117647058826,
+      "macro_f1": 0.3370908318900052
+    },
+    {
+      "user_id": 1640,
+      "examples": 560,
+      "activities_present": 16,
+      "accuracy": 0.18571428571428572,
+      "balanced_accuracy": 0.18571428571428572,
+      "macro_f1": 0.2058866189460261
+    },
+    {
+      "user_id": 1641,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.8063492063492064,
+      "balanced_accuracy": 0.8063492063492064,
+      "macro_f1": 0.8124253420609928
+    },
+    {
+      "user_id": 1643,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.8746031746031746,
+      "balanced_accuracy": 0.8746031746031746,
+      "macro_f1": 0.8705731104520125
+    },
+    {
+      "user_id": 1646,
+      "examples": 630,
+      "activities_present": 18,
+      "accuracy": 0.7587301587301587,
+      "balanced_accuracy": 0.7587301587301587,
+      "macro_f1": 0.7530575620156051
+    }
+  ],
+  "subject_summary": {
+    "macro_f1_mean": 0.66332956351506,
+    "macro_f1_std": 0.22509112815755064,
+    "macro_f1_min": 0.2058866189460261,
+    "macro_f1_median": 0.7658243880834199,
+    "macro_f1_max": 0.8705731104520125
+  },
+  "artifacts": {
+    "model": {
+      "path": "modeling/artifacts/final_hgb_model.joblib",
+      "sha256": "8c61cad93c949a91fdf99622eb3359ccdcedcf04d6648d2f10bc9f440324addf"
+    },
+    "predictions": {
+      "path": "modeling/artifacts/final_test_predictions.parquet",
+      "sha256": "97ba7f4746e301d012c915babcb71beb35aa7cdccfbd40c3a1210a1f3ef00d39"
+    }
+  },
+  "post_test_action": "No model, feature, preprocessing, or hyperparameter changes were made."
+}

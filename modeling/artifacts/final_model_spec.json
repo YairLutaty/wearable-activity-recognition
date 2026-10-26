@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_reserved_test_access",
+  "frozen_on": "2026-08-12",
+  "selection_data": "development_subjects_only",
+  "input": {
+    "sequence_artifact": "modified/watch_pair_20hz/{split}_sequences.npz",
+    "metadata_artifact": "modified/watch_pair_20hz/{split}_metadata.parquet",
+    "device": "watch",
+    "sensors": [
+      "accel",
+      "gyro"
+    ],
+    "sampling_rate_hz": 20.0,
+    "timesteps": 100,
+    "channels": [
+      "x",
+      "y",
+      "z"
+    ]
+  },
+  "features": {
+    "extractor": "modeling/engineered_features.py:extract_engineered_features",
+    "contract": "modeling/artifacts/engineered_222_meta.json",
+    "count": 222,
+    "groups": {
+      "baseline": 56,
+      "distribution_correlation": 54,
+      "temporal_dynamics": 40,
+      "frequency_structure": 72
+    },
+    "learned_preprocessing": "none"
+  },
+  "estimator": {
+    "class": "sklearn.ensemble.HistGradientBoostingClassifier",
+    "parameters": {
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "class_weight": null,
+      "random_state": 42
+    }
+  },
+  "development_result": {
+    "evaluation": "five fixed subject-wise outer folds",
+    "examples": 25585,
+    "subjects": 41,
+    "mean_accuracy": 0.7418,
+    "mean_balanced_accuracy": 0.7427,
+    "mean_macro_f1": 0.7446,
+    "macro_f1_fold_std": 0.0432,
+    "macro_f1_by_fold": {
+      "1": 0.7852,
+      "2": 0.6895,
+      "3": 0.7887,
+      "4": 0.7159,
+      "5": 0.7434
+    }
+  },
+  "final_fit": {
+    "training_population": "all 41 development subjects",
+    "training_examples": 25585,
+    "reserved_test_subjects": 10,
+    "reserved_test_examples": 6161,
+    "test_evaluations_allowed": 1,
+    "post_test_model_changes_allowed": false
+  }
+}

@@ -1,0 +1,657 @@
+{
+  "schema_version": 1,
+  "status": "final_grouped_target_test_complete_no_post_test_changes",
+  "evaluated_on": "2026-08-13",
+  "history_disclosure": "The ten subjects were not used to develop or evaluate the grouped-target classifier or policies. The same subjects were previously evaluated for the separate 18-class task.",
+  "frozen_contract": {
+    "policy_path": "business_case/artifacts/business_policy.json",
+    "policy_sha256": "55b66d56a65484e73e2f80c7ac3413c55aacfcd169622eb9a8341bffccbe19ea",
+    "policy_schema_version": 2,
+    "post_test_changes_allowed": false
+  },
+  "classifier": {
+    "selected_approach": "direct_3_class",
+    "features": 222,
+    "development_examples": 25585,
+    "development_subjects": 41,
+    "estimator": {
+      "class": "sklearn.ensemble.HistGradientBoostingClassifier",
+      "parameters": {
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1.0,
+        "early_stopping": false,
+        "class_weight": null,
+        "random_state": 42
+      }
+    },
+    "fit_seconds": 10.713128499977756
+  },
+  "test_population": {
+    "examples": 6161,
+    "subjects": 10,
+    "subject_ids": [
+      1606,
+      1607,
+      1618,
+      1626,
+      1629,
+      1639,
+      1640,
+      1641,
+      1643,
+      1646
+    ],
+    "recordings": 176,
+    "food_recordings": 49,
+    "non_food_recordings": 127
+  },
+  "window_results": {
+    "raw_classifier": {
+      "accuracy": 0.8712871287128713,
+      "balanced_accuracy": 0.8642926180934435,
+      "macro_f1": 0.8707854845197794,
+      "food_precision": 0.867100977198697,
+      "food_recall": 0.7760932944606413,
+      "food_f1": 0.819076923076923,
+      "food_false_positive_rate": 0.04588394062078273,
+      "physical_precision": 0.9809523809523809,
+      "physical_recall": 0.912850812407681,
+      "physical_f1": 0.9456771231828616,
+      "physical_false_positive_rate": 0.008716707021791767
+    },
+    "final_window_policy": {
+      "accuracy": 0.8630092517448467,
+      "balanced_accuracy": 0.8508005951691819,
+      "macro_f1": 0.8602797438020134,
+      "food_precision": 0.8980797636632201,
+      "food_recall": 0.7090379008746356,
+      "food_f1": 0.7924405343760182,
+      "food_false_positive_rate": 0.0310391363022942,
+      "physical_precision": 0.9799260433174855,
+      "physical_recall": 0.913343180699163,
+      "physical_f1": 0.9454638124362895,
+      "physical_false_positive_rate": 0.009200968523002421
+    },
+    "final_policy_group_metrics": {
+      "physical_activity": {
+        "precision": 0.9799260433174855,
+        "recall": 0.913343180699163,
+        "f1": 0.9454638124362895,
+        "support": 2031
+      },
+      "food_or_drink": {
+        "precision": 0.8980797636632201,
+        "recall": 0.7090379008746356,
+        "f1": 0.7924405343760182,
+        "support": 1715
+      },
+      "other_daily_activity": {
+        "precision": 0.7707618393960192,
+        "recall": 0.9300207039337474,
+        "f1": 0.8429348845937324,
+        "support": 2415
+      }
+    },
+    "confusion_matrix": {
+      "label_order": [
+        "physical_activity",
+        "food_or_drink",
+        "other_daily_activity"
+      ],
+      "counts": [
+        [
+          1855,
+          3,
+          173
+        ],
+        [
+          4,
+          1216,
+          495
+        ],
+        [
+          34,
+          135,
+          2246
+        ]
+      ],
+      "row_normalized": [
+        [
+          0.913343180699163,
+          0.0014771048744460858,
+          0.08517971442639094
+        ],
+        [
+          0.0023323615160349854,
+          0.7090379008746356,
+          0.2886297376093295
+        ],
+        [
+          0.014078674948240166,
+          0.055900621118012424,
+          0.9300207039337474
+        ]
+      ]
+    }
+  },
+  "food_event_result": {
+    "food_probability_threshold": 0.75,
+    "required_consecutive_windows": 4,
+    "confirmation_seconds": 20,
+    "food_recordings": 49,
+    "detected_food_recordings": 41,
+    "food_recording_detection_rate": 0.8367346938775511,
+    "non_food_recordings": 127,
+    "alerted_non_food_recordings": 5,
+    "non_food_recording_alert_rate": 0.03937007874015748,
+    "true_qualifying_runs": 84,
+    "false_qualifying_runs": 12,
+    "controlled_false_runs_per_non_food_hour": 1.9433198380566803,
+    "activity_results": {
+      "A": {
+        "activity_name": "Walking",
+        "business_label": "physical_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "B": {
+        "activity_name": "Jogging",
+        "business_label": "physical_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "C": {
+        "activity_name": "Stairs",
+        "business_label": "physical_activity",
+        "recordings": 9,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "D": {
+        "activity_name": "Sitting",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.1,
+        "qualifying_runs": 3
+      },
+      "E": {
+        "activity_name": "Standing",
+        "business_label": "other_daily_activity",
+        "recordings": 9,
+        "recording_detection_or_alert_rate": 0.1111111111111111,
+        "qualifying_runs": 1
+      },
+      "F": {
+        "activity_name": "Typing",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.1,
+        "qualifying_runs": 1
+      },
+      "G": {
+        "activity_name": "Brushing Teeth",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "H": {
+        "activity_name": "Eating Soup",
+        "business_label": "food_or_drink",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.9,
+        "qualifying_runs": 13
+      },
+      "I": {
+        "activity_name": "Eating Chips",
+        "business_label": "food_or_drink",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.8,
+        "qualifying_runs": 15
+      },
+      "J": {
+        "activity_name": "Eating Pasta",
+        "business_label": "food_or_drink",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.9,
+        "qualifying_runs": 20
+      },
+      "K": {
+        "activity_name": "Drinking from Cup",
+        "business_label": "food_or_drink",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.8,
+        "qualifying_runs": 20
+      },
+      "L": {
+        "activity_name": "Eating Sandwich",
+        "business_label": "food_or_drink",
+        "recordings": 9,
+        "recording_detection_or_alert_rate": 0.7777777777777778,
+        "qualifying_runs": 16
+      },
+      "M": {
+        "activity_name": "Kicking Soccer Ball",
+        "business_label": "physical_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "O": {
+        "activity_name": "Playing Catch",
+        "business_label": "physical_activity",
+        "recordings": 9,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "P": {
+        "activity_name": "Dribbling Basketball",
+        "business_label": "physical_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      },
+      "Q": {
+        "activity_name": "Writing",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.1,
+        "qualifying_runs": 3
+      },
+      "R": {
+        "activity_name": "Clapping",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.1,
+        "qualifying_runs": 4
+      },
+      "S": {
+        "activity_name": "Folding Clothes",
+        "business_label": "other_daily_activity",
+        "recordings": 10,
+        "recording_detection_or_alert_rate": 0.0,
+        "qualifying_runs": 0
+      }
+    }
+  },
+  "physical_activity_result": {
+    "seconds_per_predicted_physical_window": 5,
+    "precision": 0.9799260433174855,
+    "recall": 0.913343180699163,
+    "f1": 0.9454638124362895,
+    "false_positive_rate": 0.009200968523002421,
+    "actual_physical_seconds": 10155,
+    "predicted_physical_seconds": 9465,
+    "duration_error_seconds": -690,
+    "relative_duration_error": -0.06794682422451995,
+    "activity_results": {
+      "A": {
+        "activity_name": "Walking",
+        "business_label": "physical_activity",
+        "windows": 350,
+        "predicted_physical_windows": 347,
+        "predicted_physical_rate": 0.9914285714285714
+      },
+      "B": {
+        "activity_name": "Jogging",
+        "business_label": "physical_activity",
+        "windows": 350,
+        "predicted_physical_windows": 349,
+        "predicted_physical_rate": 0.9971428571428571
+      },
+      "C": {
+        "activity_name": "Stairs",
+        "business_label": "physical_activity",
+        "windows": 315,
+        "predicted_physical_windows": 297,
+        "predicted_physical_rate": 0.9428571428571428
+      },
+      "D": {
+        "activity_name": "Sitting",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 2,
+        "predicted_physical_rate": 0.005714285714285714
+      },
+      "E": {
+        "activity_name": "Standing",
+        "business_label": "other_daily_activity",
+        "windows": 315,
+        "predicted_physical_windows": 7,
+        "predicted_physical_rate": 0.022222222222222223
+      },
+      "F": {
+        "activity_name": "Typing",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 0,
+        "predicted_physical_rate": 0.0
+      },
+      "G": {
+        "activity_name": "Brushing Teeth",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 1,
+        "predicted_physical_rate": 0.002857142857142857
+      },
+      "H": {
+        "activity_name": "Eating Soup",
+        "business_label": "food_or_drink",
+        "windows": 350,
+        "predicted_physical_windows": 0,
+        "predicted_physical_rate": 0.0
+      },
+      "I": {
+        "activity_name": "Eating Chips",
+        "business_label": "food_or_drink",
+        "windows": 350,
+        "predicted_physical_windows": 2,
+        "predicted_physical_rate": 0.005714285714285714
+      },
+      "J": {
+        "activity_name": "Eating Pasta",
+        "business_label": "food_or_drink",
+        "windows": 350,
+        "predicted_physical_windows": 1,
+        "predicted_physical_rate": 0.002857142857142857
+      },
+      "K": {
+        "activity_name": "Drinking from Cup",
+        "business_label": "food_or_drink",
+        "windows": 350,
+        "predicted_physical_windows": 0,
+        "predicted_physical_rate": 0.0
+      },
+      "L": {
+        "activity_name": "Eating Sandwich",
+        "business_label": "food_or_drink",
+        "windows": 315,
+        "predicted_physical_windows": 1,
+        "predicted_physical_rate": 0.0031746031746031746
+      },
+      "M": {
+        "activity_name": "Kicking Soccer Ball",
+        "business_label": "physical_activity",
+        "windows": 350,
+        "predicted_physical_windows": 330,
+        "predicted_physical_rate": 0.9428571428571428
+      },
+      "O": {
+        "activity_name": "Playing Catch",
+        "business_label": "physical_activity",
+        "windows": 315,
+        "predicted_physical_windows": 249,
+        "predicted_physical_rate": 0.7904761904761904
+      },
+      "P": {
+        "activity_name": "Dribbling Basketball",
+        "business_label": "physical_activity",
+        "windows": 351,
+        "predicted_physical_windows": 283,
+        "predicted_physical_rate": 0.8062678062678063
+      },
+      "Q": {
+        "activity_name": "Writing",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 0,
+        "predicted_physical_rate": 0.0
+      },
+      "R": {
+        "activity_name": "Clapping",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 10,
+        "predicted_physical_rate": 0.02857142857142857
+      },
+      "S": {
+        "activity_name": "Folding Clothes",
+        "business_label": "other_daily_activity",
+        "windows": 350,
+        "predicted_physical_windows": 14,
+        "predicted_physical_rate": 0.04
+      }
+    }
+  },
+  "subject_results": [
+    {
+      "user_id": 1606,
+      "windows": 630,
+      "macro_f1": 0.9489675956450938,
+      "food_precision": 1.0,
+      "food_recall": 0.9142857142857143,
+      "food_f1": 0.9552238805970149,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 0.9485981308411215,
+      "physical_recall": 0.9666666666666667,
+      "physical_f1": 0.9575471698113207,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1070,
+      "physical_duration_error_seconds": 20,
+      "physical_relative_duration_error": 0.01904761904761905
+    },
+    {
+      "user_id": 1607,
+      "windows": 631,
+      "macro_f1": 0.6765424446401838,
+      "food_precision": 0.6623376623376623,
+      "food_recall": 0.2914285714285714,
+      "food_f1": 0.40476190476190477,
+      "food_recordings": 5,
+      "detected_food_recordings": 2,
+      "food_recording_detection_rate": 0.4,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 2,
+      "false_qualifying_runs": 4,
+      "physical_precision": 0.9538461538461539,
+      "physical_recall": 0.8815165876777251,
+      "physical_f1": 0.916256157635468,
+      "actual_physical_seconds": 1055,
+      "predicted_physical_seconds": 975,
+      "physical_duration_error_seconds": -80,
+      "physical_relative_duration_error": -0.07582938388625593
+    },
+    {
+      "user_id": 1618,
+      "windows": 595,
+      "macro_f1": 0.9017025200658395,
+      "food_precision": 0.976,
+      "food_recall": 0.6971428571428572,
+      "food_f1": 0.8133333333333334,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 12,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 0.9942857142857143,
+      "physical_f1": 0.997134670487106,
+      "actual_physical_seconds": 875,
+      "predicted_physical_seconds": 870,
+      "physical_duration_error_seconds": -5,
+      "physical_relative_duration_error": -0.005714285714285714
+    },
+    {
+      "user_id": 1626,
+      "windows": 630,
+      "macro_f1": 0.9607009843478473,
+      "food_precision": 0.9811320754716981,
+      "food_recall": 0.8914285714285715,
+      "food_f1": 0.9341317365269461,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 0.9904761904761905,
+      "physical_f1": 0.9952153110047847,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1040,
+      "physical_duration_error_seconds": -10,
+      "physical_relative_duration_error": -0.009523809523809525
+    },
+    {
+      "user_id": 1629,
+      "windows": 630,
+      "macro_f1": 0.9537037037037036,
+      "food_precision": 0.9565217391304348,
+      "food_recall": 0.88,
+      "food_f1": 0.9166666666666666,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 1.0,
+      "physical_f1": 1.0,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1050,
+      "physical_duration_error_seconds": 0,
+      "physical_relative_duration_error": 0.0
+    },
+    {
+      "user_id": 1639,
+      "windows": 595,
+      "macro_f1": 0.6837497924659531,
+      "food_precision": 0.5260416666666666,
+      "food_recall": 0.7214285714285714,
+      "food_f1": 0.608433734939759,
+      "food_recordings": 4,
+      "detected_food_recordings": 4,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 3,
+      "false_qualifying_runs": 8,
+      "physical_precision": 1.0,
+      "physical_recall": 0.7047619047619048,
+      "physical_f1": 0.8268156424581006,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 740,
+      "physical_duration_error_seconds": -310,
+      "physical_relative_duration_error": -0.29523809523809524
+    },
+    {
+      "user_id": 1640,
+      "windows": 560,
+      "macro_f1": 0.4619561127178506,
+      "food_precision": 0.0,
+      "food_recall": 0.0,
+      "food_f1": 0.0,
+      "food_recordings": 5,
+      "detected_food_recordings": 0,
+      "food_recording_detection_rate": 0.0,
+      "non_food_recordings": 11,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 0.6057142857142858,
+      "physical_f1": 0.7544483985765125,
+      "actual_physical_seconds": 875,
+      "predicted_physical_seconds": 530,
+      "physical_duration_error_seconds": -345,
+      "physical_relative_duration_error": -0.3942857142857143
+    },
+    {
+      "user_id": 1641,
+      "windows": 630,
+      "macro_f1": 0.9691459289580534,
+      "food_precision": 0.9759036144578314,
+      "food_recall": 0.9257142857142857,
+      "food_f1": 0.9501466275659824,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 0.9904761904761905,
+      "physical_f1": 0.9952153110047847,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1040,
+      "physical_duration_error_seconds": -10,
+      "physical_relative_duration_error": -0.009523809523809525
+    },
+    {
+      "user_id": 1643,
+      "windows": 630,
+      "macro_f1": 0.985243741765481,
+      "food_precision": 0.9882352941176471,
+      "food_recall": 0.96,
+      "food_f1": 0.9739130434782609,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 1.0,
+      "physical_recall": 1.0,
+      "physical_f1": 1.0,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1050,
+      "physical_duration_error_seconds": 0,
+      "physical_relative_duration_error": 0.0
+    },
+    {
+      "user_id": 1646,
+      "windows": 630,
+      "macro_f1": 0.909407153905054,
+      "food_precision": 1.0,
+      "food_recall": 0.8114285714285714,
+      "food_f1": 0.8958990536277602,
+      "food_recordings": 5,
+      "detected_food_recordings": 5,
+      "food_recording_detection_rate": 1.0,
+      "non_food_recordings": 13,
+      "alerted_non_food_recordings": 0,
+      "false_qualifying_runs": 0,
+      "physical_precision": 0.9181818181818182,
+      "physical_recall": 0.9619047619047619,
+      "physical_f1": 0.9395348837209302,
+      "actual_physical_seconds": 1050,
+      "predicted_physical_seconds": 1100,
+      "physical_duration_error_seconds": 50,
+      "physical_relative_duration_error": 0.047619047619047616
+    }
+  ],
+  "limitations": [
+    "The test consists of controlled single-activity recordings, not natural daily timelines.",
+    "Controlled false runs per hour do not estimate real-world false notifications per hour.",
+    "Food prevalence differs from ordinary daily behavior.",
+    "Candidate food events are not validated user notifications.",
+    "Physical-window accumulation is not validated active time, exercise duration, or calories.",
+    "Performance varies substantially between held-out subjects."
+  ],
+  "artifacts": {
+    "model": {
+      "path": "business_case/artifacts/grouped_final_model.joblib",
+      "sha256": "936b9d2048aff9cf52fc21f31a96a0dd38dcdf48e0ec0cf07f648d797e1a66a9"
+    },
+    "window_predictions": {
+      "path": "business_case/artifacts/grouped_test_predictions.parquet",
+      "rows": 6161,
+      "sha256": "0183a47c58940cf49cfe55d928d7e890384e63ab31e60d10125cf0659e2bbe16"
+    },
+    "recording_predictions": {
+      "path": "business_case/artifacts/grouped_test_recordings.parquet",
+      "rows": 176,
+      "sha256": "7e08494d7a101280a17b8c8e73f61e2f32169ff50d3a4d39818d3f0f0efbd1da"
+    }
+  }
+}

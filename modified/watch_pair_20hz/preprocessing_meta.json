@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "artifact_name": "paired_watch_20hz",
+  "stage": "shared_sequence_preprocessing",
+  "source_files": {
+    "train_samples": "modified/train_samples.parquet",
+    "test_samples": "modified/test_samples.parquet",
+    "windowed_split_metadata": "modified/windowed_split_meta.json",
+    "canonical_split_metadata": "baseline/artifacts/split_meta.json",
+    "development_folds": "baseline/artifacts/development_folds.json"
+  },
+  "canonical_window_protocol": {
+    "duration_s": 5.0,
+    "minimum_samples": 50,
+    "overlap": false
+  },
+  "quality_rules": {
+    "minimum_observed_span_s": 4.5,
+    "maximum_internal_gap_s": 0.5
+  },
+  "pairing": {
+    "device": "watch",
+    "required_sensors": [
+      "accel",
+      "gyro"
+    ],
+    "keys": [
+      "split",
+      "user_id",
+      "activity_code",
+      "window_position"
+    ],
+    "policy": "Inner intersection of valid accelerometer and gyroscope windows; missing streams are not synthesized.",
+    "alignment_policy": "Each sensor is resampled on its own nominal window timeline; no cross-sensor absolute-time interpolation is applied."
+  },
+  "resampling": {
+    "target_rate_hz": 20,
+    "target_timesteps": 100,
+    "first_offset_s": 0.0,
+    "last_offset_s": 4.95,
+    "grid_endpoint": "excluded",
+    "interpolation": "Linear timestamp interpolation using numpy.interp",
+    "edge_policy": "Constant nearest-observed-value padding",
+    "coverage_mask_semantics": "True when the target timestamp lies inside the observed source interval",
+    "anti_alias_filter": "none",
+    "channel_order": [
+      "x",
+      "y",
+      "z"
+    ],
+    "signal_dtype": "float32",
+    "normalization": "none"
+  },
+  "labels": {
+    "target_column": "activity_code",
+    "activity_codes_in_order": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S"
+    ]
+  },
+  "subjects": {
+    "train": [
+      1600,
+      1601,
+      1602,
+      1603,
+      1604,
+      1605,
+      1608,
+      1609,
+      1610,
+      1611,
+      1612,
+      1613,
+      1614,
+      1615,
+      1616,
+      1617,
+      1619,
+      1620,
+      1621,
+      1622,
+      1623,
+      1624,
+      1625,
+      1627,
+      1628,
+      1630,
+      1631,
+      1632,
+      1633,
+      1634,
+      1635,
+      1636,
+      1637,
+      1638,
+      1642,
+      1644,
+      1645,
+      1647,
+      1648,
+      1649,
+      1650
+    ],
+    "test": [
+      1606,
+      1607,
+      1618,
+      1626,
+      1629,
+      1639,
+      1640,
+      1641,
+      1643,
+      1646
+    ],
+    "development_fold_source": "baseline/artifacts/development_folds.json"
+  },
+  "counts": {
+    "train": {
+      "input_sensor_windows": {
+        "accel": 25708,
+        "gyro": 25588
+      },
+      "quality_excluded_windows": {
+        "accel": 3,
+        "gyro": 3
+      },
+      "valid_sensor_windows": {
+        "accel": 25705,
+        "gyro": 25585
+      },
+      "unmatched_valid_windows": {
+        "accel_only": 120,
+        "gyro_only": 0
+      },
+      "paired_output_examples": 25585
+    },
+    "test": {
+      "input_sensor_windows": {
+        "accel": 6240,
+        "gyro": 6161
+      },
+      "quality_excluded_windows": {
+        "accel": 0,
+        "gyro": 0
+      },
+      "valid_sensor_windows": {
+        "accel": 6240,
+        "gyro": 6161
+      },
+      "unmatched_valid_windows": {
+        "accel_only": 79,
+        "gyro_only": 0
+      },
+      "paired_output_examples": 6161
+    }
+  },
+  "outputs": {
+    "train_sequences": {
+      "file": "modified/watch_pair_20hz/train_sequences.npz",
+      "accel_shape": [
+        25585,
+        100,
+        3
+      ],
+      "gyro_shape": [
+        25585,
+        100,
+        3
+      ]
+    },
+    "test_sequences": {
+      "file": "modified/watch_pair_20hz/test_sequences.npz",
+      "accel_shape": [
+        6161,
+        100,
+        3
+      ],
+      "gyro_shape": [
+        6161,
+        100,
+        3
+      ]
+    },
+    "train_metadata": {
+      "file": "modified/watch_pair_20hz/train_metadata.parquet",
+      "rows": 25585
+    },
+    "test_metadata": {
+      "file": "modified/watch_pair_20hz/test_metadata.parquet",
+      "rows": 6161
+    },
+    "npz_keys": [
+      "accel",
+      "gyro",
+      "accel_coverage_mask",
+      "gyro_coverage_mask",
+      "target_offsets_s"
+    ],
+    "metadata_columns": [
+      "array_index",
+      "pair_id",
+      "split",
+      "user_id",
+      "activity_code",
+      "window_position",
+      "fold",
+      "accel_window_id",
+      "gyro_window_id",
+      "accel_n_samples",
+      "gyro_n_samples",
+      "accel_start_timestamp",
+      "accel_end_timestamp",
+      "gyro_start_timestamp",
+      "gyro_end_timestamp",
+      "accel_observed_span_s",
+      "gyro_observed_span_s",
+      "accel_max_gap_s",
+      "gyro_max_gap_s",
+      "start_offset_s",
+      "end_offset_s",
+      "overlap_s",
+      "accel_nominal_start_timestamp",
+      "accel_left_edge_padding_s",
+      "accel_right_edge_padding_s",
+      "accel_left_padded_steps",
+      "accel_right_padded_steps",
+      "accel_edge_padded_steps",
+      "accel_largest_target_bracketing_gap_s",
+      "gyro_nominal_start_timestamp",
+      "gyro_left_edge_padding_s",
+      "gyro_right_edge_padding_s",
+      "gyro_left_padded_steps",
+      "gyro_right_padded_steps",
+      "gyro_edge_padded_steps",
+      "gyro_largest_target_bracketing_gap_s"
+    ]
+  },
+  "development_status": "20 Hz is the current shared candidate representation. Its usefulness will be evaluated only with the fixed development folds before final held-out testing."
+}

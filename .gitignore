@@ -1,0 +1,31 @@
+# Large local datasets
+/raw/
+/data_clean.parquet
+/baseline/artifacts/*.parquet
+/modeling/artifacts/*.parquet
+/modeling/artifacts/*.joblib
+/business_case/artifacts/*.parquet
+/business_case/artifacts/*.joblib
+/modified/*.parquet
+/modified/**/*.parquet
+/modified/*.npz
+/modified/**/*.npz
+/modified/*.npy
+/modified/**/*.npy
+
+# macOS metadata
+.DS_Store
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example

@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "status": "development_selected_without_unbiased_final_test",
+  "selection_data": "41 development subjects only",
+  "examples": 25585,
+  "features": 222,
+  "folds": 5,
+  "window_seconds": 5.0,
+  "target_mapping": "business_case/artifacts/activity_group_mapping.json",
+  "estimator": {
+    "class": "sklearn.ensemble.HistGradientBoostingClassifier",
+    "parameters": {
+      "learning_rate": 0.05,
+      "max_iter": 200,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "class_weight": null,
+      "random_state": 42
+    }
+  },
+  "results": {
+    "aggregated_18_class": {
+      "mean_accuracy": 0.912668889100814,
+      "mean_balanced_accuracy": 0.9106659040610408,
+      "mean_macro_f1": 0.9122948871537766,
+      "macro_f1_fold_std": 0.02531580957305158,
+      "mean_food_precision": 0.8807840269167109,
+      "mean_food_recall": 0.8717789987789988,
+      "mean_physical_recall": 0.9506788247213779,
+      "macro_f1_by_fold": {
+        "1": 0.9442125185048781,
+        "2": 0.8950794222953785,
+        "3": 0.9353175684512668,
+        "4": 0.8952800984334416,
+        "5": 0.8915848280839178
+      },
+      "pooled_group_metrics": {
+        "physical_activity": {
+          "precision": 0.9844913908902185,
+          "recall": 0.9518299881936245,
+          "f1": 0.9678852272045141,
+          "support": 8470
+        },
+        "food_or_drink": {
+          "precision": 0.8818841610929273,
+          "recall": 0.8722026741731175,
+          "f1": 0.8770166996886499,
+          "support": 7105
+        },
+        "other_daily_activity": {
+          "precision": 0.8789661490982738,
+          "recall": 0.9104895104895104,
+          "f1": 0.8944501692919181,
+          "support": 10010
+        }
+      }
+    },
+    "direct_3_class": {
+      "mean_accuracy": 0.9162487938074794,
+      "mean_balanced_accuracy": 0.9132999607994542,
+      "mean_macro_f1": 0.9157683392069048,
+      "macro_f1_fold_std": 0.026166865038891853,
+      "mean_food_precision": 0.9007578269498552,
+      "mean_food_recall": 0.8646862026862028,
+      "mean_physical_recall": 0.9555105257232916,
+      "macro_f1_by_fold": {
+        "1": 0.9499182649143235,
+        "2": 0.8930291223725028,
+        "3": 0.9378809531094792,
+        "4": 0.8974809620481335,
+        "5": 0.9005323935900854
+      },
+      "pooled_group_metrics": {
+        "physical_activity": {
+          "precision": 0.9798040875559318,
+          "recall": 0.9565525383707202,
+          "f1": 0.9680387119899636,
+          "support": 8470
+        },
+        "food_or_drink": {
+          "precision": 0.9018773833968906,
+          "recall": 0.8654468684025334,
+          "f1": 0.8832866479925303,
+          "support": 7105
+        },
+        "other_daily_activity": {
+          "precision": 0.8777862449990474,
+          "recall": 0.9205794205794205,
+          "f1": 0.8986736883167544,
+          "support": 10010
+        }
+      }
+    }
+  },
+  "selection": {
+    "selected_approach": "direct_3_class",
+    "macro_f1_difference": 0.003473452053128212,
+    "food_precision_difference": 0.019973800033144307,
+    "practical_macro_f1_tie": true,
+    "reason": "Macro-F1 was within the 0.01 practical-tie range; the direct model had higher mean food-or-drink precision."
+  },
+  "subject_robustness": {
+    "macro_f1_min": 0.44728215858009973,
+    "macro_f1_median": 0.9414124233496275,
+    "macro_f1_max": 0.9983686691253154,
+    "weakest_subjects": [
+      {
+        "user_id": 1637,
+        "macro_f1": 0.44728215858009973,
+        "food_precision": 0.08333333333333333,
+        "food_recall": 0.007142857142857143
+      },
+      {
+        "user_id": 1638,
+        "macro_f1": 0.6430052944088561,
+        "food_precision": 0.4365079365079365,
+        "food_recall": 0.39285714285714285
+      },
+      {
+        "user_id": 1633,
+        "macro_f1": 0.7882912881714129,
+        "food_precision": 0.853448275862069,
+        "food_recall": 0.5657142857142857
+      },
+      {
+        "user_id": 1642,
+        "macro_f1": 0.7883027695264812,
+        "food_precision": 0.9385964912280702,
+        "food_recall": 0.6114285714285714
+      },
+      {
+        "user_id": 1647,
+        "macro_f1": 0.8062138511083355,
+        "food_precision": 0.7829457364341085,
+        "food_recall": 0.5771428571428572
+      }
+    ]
+  },
+  "selected_oof_predictions": {
+    "artifact": "business_case/artifacts/direct_oof_predictions.parquet",
+    "rows": 25585,
+    "sha256": "eab73581db58739527bafae616b81136ccb278496e7c814c90db435ce2ae9f66"
+  },
+  "test_status": "Original reserved test set was not accessed; a new independent subject population is required."
+}

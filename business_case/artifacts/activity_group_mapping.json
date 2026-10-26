@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "business_labels": [
+    "physical_activity",
+    "food_or_drink",
+    "other_daily_activity"
+  ],
+  "activity_code_to_business_label": {
+    "A": "physical_activity",
+    "B": "physical_activity",
+    "C": "physical_activity",
+    "M": "physical_activity",
+    "O": "physical_activity",
+    "P": "physical_activity",
+    "H": "food_or_drink",
+    "I": "food_or_drink",
+    "J": "food_or_drink",
+    "K": "food_or_drink",
+    "L": "food_or_drink",
+    "D": "other_daily_activity",
+    "E": "other_daily_activity",
+    "F": "other_daily_activity",
+    "G": "other_daily_activity",
+    "Q": "other_daily_activity",
+    "R": "other_daily_activity",
+    "S": "other_daily_activity"
+  },
+  "activity_code_to_name": {
+    "A": "Walking",
+    "B": "Jogging",
+    "C": "Stairs",
+    "D": "Sitting",
+    "E": "Standing",
+    "F": "Typing",
+    "G": "Brushing Teeth",
+    "H": "Eating Soup",
+    "I": "Eating Chips",
+    "J": "Eating Pasta",
+    "K": "Drinking from Cup",
+    "L": "Eating Sandwich",
+    "M": "Kicking Soccer Ball",
+    "O": "Playing Catch",
+    "P": "Dribbling Basketball",
+    "Q": "Writing",
+    "R": "Clapping",
+    "S": "Folding Clothes"
+  }
+}
